@@ -20,5 +20,7 @@ CRLF and LF
 
 ### 相关链接
   [相关链接](http://itindex.net/detail/49247-crlf-lf?utm_source=tuicool)
+  
   [github](https://help.github.com/articles/dealing-with-line-endings/)
+  
   [stackoverflow](http://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf)
