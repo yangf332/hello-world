@@ -7,4 +7,6 @@ Hello World
 
 [Data URL Schema](data-url-scheme.md)
 
+[XFN](xhtml-friends-network.md)
+
 [PHP MongoDB](php-mongodb.md)
