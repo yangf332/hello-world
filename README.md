@@ -9,4 +9,4 @@ Hello World
 
 [XFN](xhtml-friends-network.md)
 
-[PHP MongoDB](php-mongodb.md)
+[MongoDB](mongodb.md)
