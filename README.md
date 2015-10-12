@@ -12,3 +12,7 @@ Hello World
 [MongoDB](mongodb.md)
 
 [Docker](Docker.md)
+
+[C](c.md)
+
+[ssh](ssh.md)
