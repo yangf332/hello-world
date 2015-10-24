@@ -16,3 +16,5 @@ Hello World
 [C](c.md)
 
 [ssh](ssh.md)
+
+[Nginx](nginx.md)
