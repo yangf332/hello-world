@@ -34,11 +34,15 @@ Nginx
 
 
 ## 配置
-/var/www/vhost/{domain}.conf
-/var/www/sites/{domain}/
-/var/www/logs/{domain}_access.log, {domain}_error.log
+* 目录结构
+  - /var/www/vhost/{domain}.conf
+  - /var/www/sites/{domain}/
+  - /var/www/logs/{domain}_access.log, {domain}_error.log
 
-
+## FAQ
+* 静态资源访问报错：ERR_INCOMPLETE_CHUNKED_ENCODING，查看日志：open() "/nginx/fastcgi_temp/1/02/0000000021" failed (13: Permission denied) while reading upstream, client: x.x.x.x
+  - 原因是nginx配置信息里的user与fastcgi_temp所属用户不一致引起
+  - 修改，例如：chown -R www:www fastcgi_temp
 
 ### 相关书籍
 
