@@ -39,6 +39,16 @@ Nginx
   - /var/www/sites/{domain}/
   - /var/www/logs/{domain}_access.log, {domain}_error.log
 
+#### 配置401认证
+    htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+    vim nginx.conf
+    location / {
+      auth_basec "401";
+      auth_basic_user_file [passwordfile];
+    }
+    service nginx restart
+    
+
 ## FAQ
 * 静态资源访问报错：ERR_INCOMPLETE_CHUNKED_ENCODING，查看日志：open() "/nginx/fastcgi_temp/1/02/0000000021" failed (13: Permission denied) while reading upstream, client: x.x.x.x
   - 原因是nginx配置信息里的user与fastcgi_temp所属用户不一致引起
