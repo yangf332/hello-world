@@ -47,7 +47,14 @@ Nginx
       auth_basic_user_file [passwordfile];
     }
     service nginx restart
-    
+
+#### 配置环境变量
+    在location ~ \.php${
+        fastcgi_param {key} {value};
+    }    
+    // 类似于apache的 SetEnv {key} {value}
+    // 另一种方式是修改.htaccess
+    // SetEnv {key} {value}
 
 ## FAQ
 * 静态资源访问报错：ERR_INCOMPLETE_CHUNKED_ENCODING，查看日志：open() "/nginx/fastcgi_temp/1/02/0000000021" failed (13: Permission denied) while reading upstream, client: x.x.x.x
