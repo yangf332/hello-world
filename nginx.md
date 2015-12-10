@@ -60,6 +60,15 @@ Nginx
     // 另一种方式是修改.htaccess
     // SetEnv {key} {value}
 
+#### 操作php-fpm
+* 查看php-fpm的配置文件位置
+  - ps aux | grep php-fpm
+* cat /etc/php-fpm.conf 找到
+  - pid = /var/run/php-fpm/php-fpm.pid
+* 操作
+  - kill -INT \`cat /var/run/php-fpm/php-fpm.pid\`  // 关闭
+  - kill -USR2 \`cat /var/run/php-fpm/php-fpm.pid\` // 重启
+
 ## FAQ
 * 静态资源访问报错：ERR_INCOMPLETE_CHUNKED_ENCODING，查看日志：open() "/nginx/fastcgi_temp/1/02/0000000021" failed (13: Permission denied) while reading upstream, client: x.x.x.x
   - 原因是nginx配置信息里的user与fastcgi_temp所属用户不一致引起
