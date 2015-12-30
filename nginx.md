@@ -60,6 +60,45 @@ Nginx
     // 另一种方式是修改.htaccess
     // SetEnv {key} {value}
 
+#### 配置常用rewrite
+* 判断
+  - -f !-f 判断是否存在文件
+  - -d !-d 判断是否存在目录
+  - -e !-e 判断是否存在文件或目录
+  - -x !-x 判断文件是否可执行
+* flag标记
+  - last 相当于Apache里的[L]标记，表示完成
+  - break 终止匹配，不再匹配后面的规则
+  - redirect 返回302临时重定向
+  - permanent 返回301永久重定向
+* 可用的全局变量
+  - $args, $host,  $limit_rate
+  - $content_lenth, $content_type
+  - $document_root, $document_uri
+  - $http_user_agent, $http_cookie
+  - $request_body_file, $request_method, $request_filename, $request_uri
+  - $remote_addr, $remote_port, $remote_user
+  - $query_string, $scheme
+  - $server_protocol, $server_addr, $server_name, $server_port
+
+````
+    location / {
+        index  index.php index.html index.htm;
+        if (-f $request_filename/index.html){
+            rewrite (.*) $1/index.html break;
+        }
+        if (-f $request_filename/index.php){
+            rewrite (.*) $1/index.php;
+        }
+        if (!-f $request_filename){
+            rewrite (.*) /index.php;
+        }
+    }
+    // others
+    rewrite ^/(.*)([^/])$ http://$host/$1$2/ permanent;  // 后缀加'/'
+    rewrite ^(.*)list-([0-9]+)-([0-9]+)\.html$ $1/list.php?catid=$2&page=$3;
+````
+
 #### 操作php-fpm
 * 查看php-fpm的配置文件位置
   - ps aux | grep php-fpm
