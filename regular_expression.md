@@ -46,6 +46,8 @@
     
 
 ### 相关资料
+[在线正则测试工具](http://tool.oschina.net/regex/)
 
+[练习工具](http://regex.alf.nu/)
 
 
