@@ -112,6 +112,13 @@ Nginx
 * 静态资源访问报错：ERR_INCOMPLETE_CHUNKED_ENCODING，查看日志：open() "/nginx/fastcgi_temp/1/02/0000000021" failed (13: Permission denied) while reading upstream, client: x.x.x.x
   - 原因是nginx配置信息里的user与fastcgi_temp所属用户不一致引起
   - 修改，例如：chown -R www:www fastcgi_temp
+* connect() failed (111: Connection refused) while connecting to upstream, 出现502 gateway errors在浏览器上
+  - php-fpm未启动
+* FastCGI sent in stderr: "**Primary script unknown**" while reading response header from upstream
+  - 检查配置文件中$document_root和fastcgi_param SCRIPT_FILENAME是否正确
+* nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use); nginx: [emerg] still could not bind()
+  - 80端口已经被占用，使用netstat -ntpl检查端口占用程序
+
 
 ### 相关书籍
 
