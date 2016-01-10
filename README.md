@@ -30,3 +30,5 @@ Hello World
 [charset](charset.md)
 
 [regular expression](regular_expression.md)
+
+[设计模式](design_patterns.md)
